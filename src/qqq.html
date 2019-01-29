@@ -1,0 +1,92 @@
+ <span class="badge">{ heroes.map( (obj) => {
+                            return (obj.id)
+                            })}</span> 
+
+
+
+
+export default class Hero extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            
+            //this.selectedHero = {};
+        };
+        //null object
+        this.selectedHero = {};
+    }
+
+    onSelect(hero) {
+        this.selectedHero = hero;
+        this.setState({
+            //this.selectedHero = hero;
+        });
+        console.log(hero);
+    }
+
+
+
+
+                    <div>
+                    <h2>{this.state.selectedHero.name} details!</h2>
+
+                    <div>
+                        <label>id: </label>{this.state.selectedHero.id}
+                    </div>
+
+                    <div>
+                        <label>name: </label>
+                        <input value={this.state.selectedHero.name} />
+                    </div>
+
+                </div>
+
+
+
+                <div >
+                    <HeroDetail heroName={this.state.selectedHero.name} heroId={this.state.selectedHero.id} />
+                </div>
+                       
+
+                  
+    div.hidden {
+      display: none;
+    }
+
+
+    onDeleteHero(deletedHero) {
+        //this.setState({ selectedHero: null });
+
+        const heroes = this.state.heroes;
+        const deletedIndex = heroes.indexOf(deletedHero);
+        heroes.slice(deletedIndex, 1);
+        console.log(deletedIndex);
+        console.log(heroes);
+        this.setState({ heroes: heroes });
+
+        //can delete but why i must double press
+
+
+        <button className="delete" onClick={() => this.onDeleteHero(hero)}>x</button>
+
+        ReactDOM.render(
+    <Router history={browserHistory}>
+        <Route path="/" component={App}/>
+        <Route path="/hero" component={Hero}/>
+    </Router>,
+    document.getElementById('root')
+);
+
+import createHistory from 'history/createBrowserHistory';
+
+import {Router,Route,browserHistory} from 'react-router';
+import { Link,browserHistory } from 'react-router-dom'
+
+if (module.hot) {
+    module.hot.accept('./heroes', () => {
+        ReactDOM.render(
+            <Hero />,
+            document.getElementById('root')
+        );
+    })
+}
